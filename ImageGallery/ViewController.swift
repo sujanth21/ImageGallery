@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         backBtn.isEnabled = false
         backBtn.alpha = 0.25
         imageView.image = UIImage(named: "\(imageArray[currentImage])")
+        label.text = "\(currentImage + 1)/\(imageArray.count)"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,8 +37,13 @@ class ViewController: UIViewController {
     @IBAction func backBtnPressed(_ sender: UIButton) {
         if currentImage > 0 {
             backBtn.isEnabled = true
+            backBtn.alpha = 1.0
             currentImage -= 1
             imageView.image = UIImage(named: "\(imageArray[currentImage])")
+            label.text = "\(currentImage + 1)/\(imageArray.count)"
+            
+            nextBtn.isEnabled = true
+            nextBtn.alpha = 1.0
         } else {
             backBtn.isEnabled = false
             backBtn.alpha = 0.25
@@ -46,6 +53,19 @@ class ViewController: UIViewController {
     
     
     @IBAction func nextBtnPressed(_ sender: UIButton) {
+        if currentImage < imageArray.count - 1 {
+            nextBtn.isEnabled = true
+            nextBtn.alpha = 1.0
+            currentImage += 1
+            imageView.image = UIImage(named: "\(imageArray[currentImage])")
+            label.text = "\(currentImage + 1)/\(imageArray.count)"
+            
+            backBtn.isEnabled = true
+            backBtn.alpha = 1.0
+        } else {
+            nextBtn.isEnabled = false
+            nextBtn.alpha = 0.25
+        }
     }
     
 }
