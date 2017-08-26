@@ -40,6 +40,9 @@
                                         <state key="normal" title="Back">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rOz-BB-shB"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-oP-v9I">
                                         <rect key="frame" x="114.5" y="0.0" width="114" height="50"/>
@@ -54,6 +57,9 @@
                                         <state key="normal" title="Next">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nextBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZAw-uK-nUS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -72,6 +78,12 @@
                             <constraint firstItem="wdc-g6-DKk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xeZ-fP-Hij"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backBtn" destination="ya2-MR-MUS" id="WPg-om-wth"/>
+                        <outlet property="imageView" destination="wdc-g6-DKk" id="ZT9-rI-4Me"/>
+                        <outlet property="label" destination="PcK-oP-v9I" id="g6x-xM-NIY"/>
+                        <outlet property="nextBtn" destination="hcR-NB-77B" id="65E-br-eI3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
