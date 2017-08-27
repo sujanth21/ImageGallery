@@ -75,7 +75,7 @@
                             <constraint firstItem="0ag-zU-YkK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Wcl-1L-Zfq"/>
                             <constraint firstAttribute="bottomMargin" secondItem="0ag-zU-YkK" secondAttribute="bottom" constant="14" id="c7Z-H5-mgJ"/>
                             <constraint firstItem="wdc-g6-DKk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="wDf-8j-Asy"/>
-                            <constraint firstItem="wdc-g6-DKk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xeZ-fP-Hij"/>
+                            <constraint firstItem="wdc-g6-DKk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="xeZ-fP-Hij"/>
                         </constraints>
                     </view>
                     <connections>

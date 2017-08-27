@@ -22,51 +22,63 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backBtn.isEnabled = false
-        backBtn.alpha = 0.25
+        backBtnEnabled()
         imageView.image = UIImage(named: "\(imageArray[currentImage])")
         label.text = "\(currentImage + 1)/\(imageArray.count)"
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
+        
         if currentImage > 0 {
-            backBtn.isEnabled = true
-            backBtn.alpha = 1.0
             currentImage -= 1
+            backBtnEnabled()
             imageView.image = UIImage(named: "\(imageArray[currentImage])")
             label.text = "\(currentImage + 1)/\(imageArray.count)"
-            
-            nextBtn.isEnabled = true
-            nextBtn.alpha = 1.0
+            nextBtnEnabled()
         } else {
-            backBtn.isEnabled = false
-            backBtn.alpha = 0.25
+            backBtnEnabled()
         }
         
     }
     
     
     @IBAction func nextBtnPressed(_ sender: UIButton) {
-        if currentImage < imageArray.count - 1 {
-            nextBtn.isEnabled = true
-            nextBtn.alpha = 1.0
-            currentImage += 1
+        
+        currentImage += 1
+        if currentImage < imageArray.count {
+            nextBtnEnabled()
             imageView.image = UIImage(named: "\(imageArray[currentImage])")
             label.text = "\(currentImage + 1)/\(imageArray.count)"
-            
+            backBtnEnabled()
+        } else {
+            nextBtnEnabled()
+        }
+    }
+    
+    func backBtnEnabled() {
+        
+        if currentImage > 0 {
             backBtn.isEnabled = true
             backBtn.alpha = 1.0
+        } else {
+            backBtn.isEnabled = false
+            backBtn.alpha = 0.25
+        }
+    }
+    
+    func nextBtnEnabled() {
+        
+        if currentImage < (imageArray.count - 1) {
+            nextBtn.isEnabled = true
+            nextBtn.alpha = 1.0
         } else {
             nextBtn.isEnabled = false
             nextBtn.alpha = 0.25
         }
     }
+    
     
 }
 
