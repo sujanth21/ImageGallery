@@ -15,68 +15,59 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var label: UILabel!
     
-    var imageArray = ["Image1", "Image2", "Image3", "Image4", "Image5", "Image6"]
-    var currentImage = 0
+    var imageInt = 1
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         backBtnEnabled()
-        imageView.image = UIImage(named: "\(imageArray[currentImage])")
-        label.text = "\(currentImage + 1)/\(imageArray.count)"
-        
     }
     
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
         
-        if currentImage > 0 {
-            currentImage -= 1
-            backBtnEnabled()
-            imageView.image = UIImage(named: "\(imageArray[currentImage])")
-            label.text = "\(currentImage + 1)/\(imageArray.count)"
-            nextBtnEnabled()
-        } else {
-            backBtnEnabled()
-        }
-        
+        imageInt -= 1
+        backBtnEnabled()
+        nextBtnEnabled()
+        imageGallery()
     }
     
     
     @IBAction func nextBtnPressed(_ sender: UIButton) {
         
-        currentImage += 1
-        if currentImage < imageArray.count {
-            nextBtnEnabled()
-            imageView.image = UIImage(named: "\(imageArray[currentImage])")
-            label.text = "\(currentImage + 1)/\(imageArray.count)"
-            backBtnEnabled()
-        } else {
-            nextBtnEnabled()
-        }
+        imageInt += 1
+        backBtnEnabled()
+        nextBtnEnabled()
+        imageGallery()
+    }
+    
+    func imageGallery() {
+        
+        label.text = "\(imageInt)/6"
+        imageView.image = UIImage(named: "Image\(imageInt)")
     }
     
     func backBtnEnabled() {
-        
-        if currentImage > 0 {
+        if imageInt > 1 {
             backBtn.isEnabled = true
             backBtn.alpha = 1.0
         } else {
             backBtn.isEnabled = false
             backBtn.alpha = 0.25
         }
+        
     }
     
     func nextBtnEnabled() {
-        
-        if currentImage < (imageArray.count - 1) {
+        if imageInt < 6 {
             nextBtn.isEnabled = true
             nextBtn.alpha = 1.0
         } else {
             nextBtn.isEnabled = false
             nextBtn.alpha = 0.25
         }
+        
     }
     
     
