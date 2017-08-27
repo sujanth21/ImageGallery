@@ -21,15 +21,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backBtnEnabled()
+        imageGallery()
     }
     
 
     @IBAction func backBtnPressed(_ sender: UIButton) {
         
         imageInt -= 1
-        backBtnEnabled()
-        nextBtnEnabled()
         imageGallery()
     }
     
@@ -37,8 +35,6 @@ class ViewController: UIViewController {
     @IBAction func nextBtnPressed(_ sender: UIButton) {
         
         imageInt += 1
-        backBtnEnabled()
-        nextBtnEnabled()
         imageGallery()
     }
     
@@ -46,6 +42,8 @@ class ViewController: UIViewController {
         
         label.text = "\(imageInt)/6"
         imageView.image = UIImage(named: "Image\(imageInt)")
+        backBtnEnabled()
+        nextBtnEnabled()
     }
     
     func backBtnEnabled() {
